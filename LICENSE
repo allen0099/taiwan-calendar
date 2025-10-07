@@ -32,7 +32,7 @@ SOFTWARE.
 
 ## 2. 資料授權 (Data License)
 
-本專案所提供的開放資料（位於 `docs/` 目錄下的 JSON 檔案）來源為**中華民國行政院人事行政總處**，
+本專案所提供的開放資料（位於 `public/` 目錄下的 JSON 檔案）來源為**中華民國行政院人事行政總處**，
 資料依循**政府資料開放授權條款**進行公眾釋出。
 
 ### 政府資料開放授權條款－第1版
@@ -85,7 +85,7 @@ SOFTWARE.
 This project uses dual licensing:
 
 1. **Source Code**: Licensed under MIT License
-2. **Data Files** (in `docs/` directory): Licensed under Taiwan Open Government Data License (compatible with CC BY 4.0)
+2. **Data Files** (in `public/` directory): Licensed under Taiwan Open Government Data License (compatible with CC BY 4.0)
 
 **Data Source**: Directorate-General of Personnel Administration, Executive Yuan, R.O.C.  
 **Data License**: https://data.gov.tw/license

@@ -15,7 +15,7 @@
 
 ### 📊 資料授權
 
-本專案提供的**開放資料**（`docs/` 目錄下的 JSON 檔案）來源為**中華民國行政院人事行政總處**，依循**政府資料開放授權條款**進行公眾釋出。
+本專案提供的**開放資料**（`public/` 目錄下的 JSON 檔案）來源為**中華民國行政院人事行政總處**，依循**政府資料開放授權條款**進行公眾釋出。
 
 **重要資訊：**
 - **資料來源：** 行政院人事行政總處
@@ -105,7 +105,7 @@ This project uses **dual licensing**:
 
 ### Data Files
 - **License:** Taiwan Open Government Data License (Version 1.0)
-- **Scope:** All JSON files in the `docs/` directory
+- **Scope:** All JSON files in the `public/` directory
 - **Data Source:** Directorate-General of Personnel Administration, Executive Yuan, R.O.C.
 - **Compatibility:** Compatible with Creative Commons Attribution 4.0 International (CC BY 4.0)
 

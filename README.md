@@ -110,7 +110,7 @@ taiwan-calendar/
 ├── src/
 │   ├── index.ts                  # 主程式（網頁爬蟲 + CSV 解析）
 │   └── types.ts                  # TypeScript 類型定義
-├── docs/                         # GitHub Pages 輸出目錄（將推送到 gh-pages 分支）
+├── public/                         # GitHub Pages 輸出目錄（將推送到 gh-pages 分支）
 │   ├── index.html               # API 說明頁面
 │   ├── index.json               # API 索引
 │   └── YYYY-MM.json             # 各月份資料
@@ -130,7 +130,7 @@ taiwan-calendar/
 工作流程:
 1. 抓取政府資料開放平台的所有行事曆資料
 2. 解析並轉換為 JSON 格式
-3. 儲存到 `docs/` 目錄
+3. 儲存到 `public/` 目錄
 4. 自動推送到 `gh-pages` 分支（不會污染 main 分支）
 5. 部署到 GitHub Pages
 
@@ -206,7 +206,7 @@ interface CalendarData {
 本專案的原始碼採用 **MIT License** 授權。
 
 ### 資料授權
-本專案提供的開放資料（`docs/` 目錄下的 JSON 檔案）來源為**中華民國行政院人事行政總處**，依循**政府資料開放授權條款**進行公眾釋出。
+本專案提供的開放資料（`public/` 目錄下的 JSON 檔案）來源為**中華民國行政院人事行政總處**，依循**政府資料開放授權條款**進行公眾釋出。
 
 **資料來源：** 行政院人事行政總處  
 **資料集名稱：** 中華民國政府行政機關辦公日曆表  
