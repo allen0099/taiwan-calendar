@@ -1,7 +1,7 @@
 {
   "name": "taiwan-calendar",
   "version": "1.0.0",
-  "description": "Taiwan government holiday calendar API - Auto-updated from Executive Yuan Personnel Administration",
+  "description": "Taiwan government holiday calendar API - Auto-updated from Executive Yuan Personnel Administration. Data licensed under Open Government Data License.",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -17,10 +17,15 @@
     "calendar",
     "holiday",
     "government",
-    "api"
+    "api",
+    "open-data"
   ],
-  "author": "",
+  "author": "allen0099",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allen0099/taiwan-calendar.git"
+  },
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
     "axios": "^1.12.2",

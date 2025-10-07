@@ -250,6 +250,11 @@ function parseCSVToJSON(csvContent: string, source: CalendarSource): CalendarDat
       month,
       holidays,
       generatedAt: new Date().toISOString(),
+      license: {
+        name: '政府資料開放授權條款',
+        url: 'https://data.gov.tw/license',
+        attribution: '資料來源：行政院人事行政總處',
+      },
     });
   }
 
@@ -304,6 +309,12 @@ async function generateIndex(outputDir: string): Promise<void> {
       };
     }),
     generatedAt: new Date().toISOString(),
+    license: {
+      name: '政府資料開放授權條款',
+      url: 'https://data.gov.tw/license',
+      attribution: '資料來源：行政院人事行政總處',
+      note: '此開放資料依政府資料開放授權條款 (Open Government Data License) 進行公眾釋出，使用者於遵守本條款各項規定之前提下，得利用之。',
+    },
   };
 
   const indexPath = path.join(outputDir, 'index.json');

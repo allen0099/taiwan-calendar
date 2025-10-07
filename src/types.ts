@@ -12,4 +12,9 @@ export interface CalendarData {
   month: number;
   holidays: Holiday[];
   generatedAt: string;
+  license?: {
+    name: string;
+    url: string;
+    attribution: string;
+  };
 }
