@@ -7,11 +7,11 @@ on:
   
   # 也可以手動觸發
   workflow_dispatch:
-  
-  # 推送到 main 分支時執行
+
+  # 推送到 master 分支時執行
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: write
