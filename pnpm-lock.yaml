@@ -9,35 +9,35 @@ importers:
   .:
     dependencies:
       axios:
-        specifier: ^1.7.7
+        specifier: ^1.12.2
         version: 1.12.2
       cheerio:
-        specifier: ^1.0.0
+        specifier: ^1.1.2
         version: 1.1.2
       csv-parse:
-        specifier: ^5.6.0
-        version: 5.6.0
+        specifier: ^6.1.0
+        version: 6.1.0
     devDependencies:
       '@types/node':
-        specifier: ^22.10.2
-        version: 22.18.8
+        specifier: ^24.7.0
+        version: 24.7.0
       '@typescript-eslint/eslint-plugin':
-        specifier: ^8.18.1
+        specifier: ^8.46.0
         version: 8.46.0(@typescript-eslint/parser@8.46.0(eslint@9.37.0)(typescript@5.9.3))(eslint@9.37.0)(typescript@5.9.3)
       '@typescript-eslint/parser':
-        specifier: ^8.18.1
+        specifier: ^8.46.0
         version: 8.46.0(eslint@9.37.0)(typescript@5.9.3)
       eslint:
-        specifier: ^9.17.0
+        specifier: ^9.37.0
         version: 9.37.0
       prettier:
-        specifier: ^3.4.2
+        specifier: ^3.6.2
         version: 3.6.2
       tsx:
-        specifier: ^4.19.2
+        specifier: ^4.20.6
         version: 4.20.6
       typescript:
-        specifier: ^5.7.2
+        specifier: ^5.9.3
         version: 5.9.3
 
 packages:
@@ -270,8 +270,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@22.18.8':
-    resolution: {integrity: sha512-pAZSHMiagDR7cARo/cch1f3rXy0AEXwsVsVH09FcyeJVAzCnGgmYis7P3JidtTUjyadhTeSo8TgRPswstghDaw==}
+  '@types/node@24.7.0':
+    resolution: {integrity: sha512-IbKooQVqUBrlzWTi79E8Fw78l8k1RNtlDDNWsFZs7XonuQSJ8oNYfEeclhprUldXISRMLzBpILuKgPlIxm+/Yw==}
 
   '@typescript-eslint/eslint-plugin@8.46.0':
     resolution: {integrity: sha512-hA8gxBq4ukonVXPy0OKhiaUh/68D0E88GSmtC1iAEnGaieuDi38LhS7jdCHRLi6ErJBNDGCzvh5EnzdPwUc0DA==}
@@ -418,8 +418,8 @@ packages:
     resolution: {integrity: sha512-u/O3vwbptzhMs3L1fQE82ZSLHQQfto5gyZzwteVIEyeaY5Fc7R4dapF/BvRoSYFeqfBk4m0V1Vafq5Pjv25wvA==}
     engines: {node: '>= 6'}
 
-  csv-parse@5.6.0:
-    resolution: {integrity: sha512-l3nz3euub2QMg5ouu5U09Ew9Wf6/wQ8I++ch1loQ0ljmzhmfZYrH9fflS22i/PQEvsPvxCwxgz5q7UB8K1JO4Q==}
+  csv-parse@6.1.0:
+    resolution: {integrity: sha512-CEE+jwpgLn+MmtCpVcPtiCZpVtB6Z2OKPTr34pycYYoL7sxdOkXDdQ4lRiw6ioC0q6BLqhc6cKweCVvral8yhw==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -853,8 +853,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+  undici-types@7.14.0:
+    resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
 
   undici@7.16.0:
     resolution: {integrity: sha512-QEg3HPMll0o3t2ourKwOeUAZ159Kn9mx5pnzHRQO8+Wixmh88YdZRiIwat0iNzNNXn0yoEtXJqFpyW7eM8BV7g==}
@@ -1037,9 +1037,9 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@22.18.8':
+  '@types/node@24.7.0':
     dependencies:
-      undici-types: 6.21.0
+      undici-types: 7.14.0
 
   '@typescript-eslint/eslint-plugin@8.46.0(@typescript-eslint/parser@8.46.0(eslint@9.37.0)(typescript@5.9.3))(eslint@9.37.0)(typescript@5.9.3)':
     dependencies:
@@ -1243,7 +1243,7 @@ snapshots:
 
   css-what@6.2.2: {}
 
-  csv-parse@5.6.0: {}
+  csv-parse@6.1.0: {}
 
   debug@4.4.3:
     dependencies:
@@ -1685,7 +1685,7 @@ snapshots:
 
   typescript@5.9.3: {}
 
-  undici-types@6.21.0: {}
+  undici-types@7.14.0: {}
 
   undici@7.16.0: {}
 
