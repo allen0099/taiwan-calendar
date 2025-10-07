@@ -1,6 +1,6 @@
 # Taiwan Government Holiday Calendar API
 
-![Update Calendar](https://github.com/YOUR_USERNAME/taiwan-calendar/workflows/Update%20Taiwan%20Calendar/badge.svg)
+![Update Calendar](https://github.com/allen0099/taiwan-calendar/workflows/Update%20Taiwan%20Calendar/badge.svg)
 
 自動更新的台灣政府行事曆 API,資料來源為[政府資料開放平台 - 中華民國政府行政機關辦公日曆表](https://data.gov.tw/dataset/14718)。
 
@@ -19,7 +19,7 @@
 ### 基礎 URL
 
 ```
-https://YOUR_USERNAME.github.io/taiwan-calendar/
+https://allen0099.github.io/taiwan-calendar/
 ```
 
 ### 端點 (Endpoints)
@@ -27,7 +27,7 @@ https://YOUR_USERNAME.github.io/taiwan-calendar/
 #### 1. 取得索引列表
 
 ```
-GET https://YOUR_USERNAME.github.io/taiwan-calendar/index.json
+GET https://allen0099.github.io/taiwan-calendar/index.json
 ```
 
 回應範例:
@@ -48,12 +48,12 @@ GET https://YOUR_USERNAME.github.io/taiwan-calendar/index.json
 #### 2. 取得特定月份行事曆
 
 ```
-GET https://YOUR_USERNAME.github.io/taiwan-calendar/YYYY-MM.json
+GET https://allen0099.github.io/taiwan-calendar/YYYY-MM.json
 ```
 
 範例:
 ```
-GET https://YOUR_USERNAME.github.io/taiwan-calendar/2024-10.json
+GET https://allen0099.github.io/taiwan-calendar/2024-10.json
 ```
 
 回應範例:
