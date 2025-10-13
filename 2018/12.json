@@ -1,0 +1,260 @@
+{
+  "year": 2018,
+  "month": 12,
+  "holidays": [
+    {
+      "date": "20181201",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181202",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181203",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181204",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181205",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181206",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181207",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181208",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181209",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181210",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181211",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181212",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181213",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181214",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181215",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181216",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181217",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181218",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181219",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181220",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181221",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181222",
+      "name": "調整上班",
+      "isHoliday": false,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": "調整上班"
+    },
+    {
+      "date": "20181223",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181224",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181225",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181226",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181227",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181228",
+      "name": "",
+      "isHoliday": false,
+      "isWeekend": false,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181229",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181230",
+      "name": "",
+      "isHoliday": true,
+      "isWeekend": true,
+      "isSpecialHoliday": false,
+      "description": ""
+    },
+    {
+      "date": "20181231",
+      "name": "調整放假",
+      "isHoliday": true,
+      "isWeekend": false,
+      "isSpecialHoliday": true,
+      "description": "調整放假"
+    }
+  ],
+  "generatedAt": "2025-10-13T09:52:17.819Z",
+  "license": {
+    "name": "政府資料開放授權條款",
+    "url": "https://data.gov.tw/license",
+    "attribution": "資料來源：行政院人事行政總處"
+  }
+}

@@ -153,7 +153,13 @@
             <div class="endpoint">
                 <h3>取得特定月份行事曆 <span class="badge">GET</span></h3>
                 <p class="endpoint-url" id="monthUrl">Loading...</p>
-                <p style="margin-top: 10px; color: #666; font-size: 0.9em;">範例: /2024-10.json</p>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;">範例: /2025/10.json</p>
+            </div>
+            
+            <div class="endpoint">
+                <h3>取得整年份行事曆 <span class="badge">GET</span></h3>
+                <p class="endpoint-url" id="yearUrl">Loading...</p>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;">範例: /2025/all.json</p>
             </div>
         </div>
         
@@ -166,8 +172,13 @@ fetch('<span id="apiBase">Loading...</span>/index.json')
   .then(res => res.json())
   .then(data => console.log(data));
 
-// 取得 2024 年 10 月的行事曆
-fetch('<span id="apiBase2">Loading...</span>/2024-10.json')
+// 取得 2025 年 10 月的行事曆
+fetch('<span id="apiBase2">Loading...</span>/2025/10.json')
+  .then(res => res.json())
+  .then(data => console.log(data));
+
+// 取得 2025 年整年的行事曆
+fetch('<span id="apiBase3">Loading...</span>/2025/all.json')
   .then(res => res.json())
   .then(data => console.log(data));</pre>
             </div>
@@ -175,17 +186,42 @@ fetch('<span id="apiBase2">Loading...</span>/2024-10.json')
         
         <div class="section">
             <h2>📝 回應格式</h2>
+            <h3 style="font-size: 1.1em; margin: 15px 0 10px 0;">月份資料格式</h3>
             <div class="code-block">
 <pre>{
-  "year": 2024,
+  "year": 2025,
   "month": 10,
   "holidays": [
     {
-      "date": "20241010",
+      "date": "20251010",
       "name": "國慶日",
       "isHoliday": true,
-      "holidayCategory": "國定假日",
-      "description": ""
+      "isWeekend": false,
+      "isSpecialHoliday": true,
+      "description": "國慶日"
+    }
+  ],
+  "generatedAt": "2024-10-07T12:00:00.000Z"
+}</pre>
+            </div>
+            
+            <h3 style="font-size: 1.1em; margin: 15px 0 10px 0;">年度資料格式</h3>
+            <div class="code-block">
+<pre>{
+  "year": 2025,
+  "months": [
+    {
+      "month": 1,
+      "holidays": [
+        {
+          "date": "20250101",
+          "name": "開國紀念日",
+          "isHoliday": true,
+          "isWeekend": false,
+          "isSpecialHoliday": true,
+          "description": "開國紀念日"
+        }
+      ]
     }
   ],
   "generatedAt": "2024-10-07T12:00:00.000Z"
@@ -215,9 +251,11 @@ fetch('<span id="apiBase2">Loading...</span>/2024-10.json')
         // 自動填入當前網站的 URL
         const baseUrl = window.location.origin + window.location.pathname.replace(/\/$/, '');
         document.getElementById('indexUrl').textContent = baseUrl + '/index.json';
-        document.getElementById('monthUrl').textContent = baseUrl + '/YYYY-MM.json';
+        document.getElementById('monthUrl').textContent = baseUrl + '/YYYY/MM.json';
+        document.getElementById('yearUrl').textContent = baseUrl + '/YYYY/YYYY.json';
         document.getElementById('apiBase').textContent = baseUrl;
         document.getElementById('apiBase2').textContent = baseUrl;
+        document.getElementById('apiBase3').textContent = baseUrl;
         
         // 嘗試推測 GitHub repo 連結
         if (window.location.hostname.includes('github.io')) {
