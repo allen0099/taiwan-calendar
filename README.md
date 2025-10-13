@@ -37,8 +37,8 @@ GET https://allen0099.github.io/taiwan-calendar/index.json
     {
       "year": 2025,
       "month": null,
-      "file": "2025/2025.json",
-      "url": "./2025/2025.json",
+      "file": "2025/all.json",
+      "url": "./2025/all.json",
       "isYearly": true
     },
     {
@@ -90,7 +90,7 @@ GET https://allen0099.github.io/taiwan-calendar/YYYY/all.json
 
 範例:
 ```
-GET https://allen0099.github.io/taiwan-calendar/2025/2025.json
+GET https://allen0099.github.io/taiwan-calendar/2025/all.json
 ```
 
 回應範例:
