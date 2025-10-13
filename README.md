@@ -35,10 +35,17 @@ GET https://allen0099.github.io/taiwan-calendar/index.json
 {
   "availableCalendars": [
     {
-      "year": 2024,
+      "year": 2025,
+      "month": null,
+      "file": "2025/2025.json",
+      "url": "./2025/2025.json",
+      "isYearly": true
+    },
+    {
+      "year": 2025,
       "month": 10,
-      "file": "2024-10.json",
-      "url": "./2024-10.json"
+      "file": "2025/10.json",
+      "url": "./2025/10.json"
     }
   ],
   "generatedAt": "2024-10-07T12:00:00.000Z"
@@ -48,26 +55,61 @@ GET https://allen0099.github.io/taiwan-calendar/index.json
 #### 2. 取得特定月份行事曆
 
 ```
-GET https://allen0099.github.io/taiwan-calendar/YYYY-MM.json
+GET https://allen0099.github.io/taiwan-calendar/YYYY/MM.json
 ```
 
 範例:
 ```
-GET https://allen0099.github.io/taiwan-calendar/2024-10.json
+GET https://allen0099.github.io/taiwan-calendar/2025/10.json
 ```
 
 回應範例:
 ```json
 {
-  "year": 2024,
+  "year": 2025,
   "month": 10,
   "holidays": [
     {
-      "date": "20241010",
+      "date": "20251010",
       "name": "國慶日",
       "isHoliday": true,
-      "holidayCategory": "國定假日",
-      "description": ""
+      "isWeekend": false,
+      "isSpecialHoliday": true,
+      "description": "國慶日"
+    }
+  ],
+  "generatedAt": "2024-10-07T12:00:00.000Z"
+}
+```
+
+#### 3. 取得整年份行事曆
+
+```
+GET https://allen0099.github.io/taiwan-calendar/YYYY/all.json
+```
+
+範例:
+```
+GET https://allen0099.github.io/taiwan-calendar/2025/2025.json
+```
+
+回應範例:
+```json
+{
+  "year": 2025,
+  "months": [
+    {
+      "month": 1,
+      "holidays": [
+        {
+          "date": "20250101",
+          "name": "開國紀念日",
+          "isHoliday": true,
+          "isWeekend": false,
+          "isSpecialHoliday": true,
+          "description": "開國紀念日"
+        }
+      ]
     }
   ],
   "generatedAt": "2024-10-07T12:00:00.000Z"
@@ -110,10 +152,12 @@ taiwan-calendar/
 ├── src/
 │   ├── index.ts                  # 主程式（網頁爬蟲 + CSV 解析）
 │   └── types.ts                  # TypeScript 類型定義
-├── public/                         # GitHub Pages 輸出目錄（將推送到 gh-pages 分支）
+├── public/                       # GitHub Pages 輸出目錄（將推送到 gh-pages 分支）
 │   ├── index.html               # API 說明頁面
 │   ├── index.json               # API 索引
-│   └── YYYY-MM.json             # 各月份資料
+│   └── YYYY/                    # 年份目錄
+│       ├── MM.json              # 各月份資料
+│       └── all.json             # 整年份資料
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -174,6 +218,29 @@ interface CalendarData {
   month: number;             // 月份
   holidays: Holiday[];       // 假日列表（包含該月所有日期）
   generatedAt: string;       // 產生時間 (ISO 8601)
+  license?: {                // 資料授權資訊
+    name: string;
+    url: string;
+    attribution: string;
+  };
+}
+```
+
+### YearlyCalendarData 物件
+
+```typescript
+interface YearlyCalendarData {
+  year: number;              // 年份
+  months: {                  // 所有月份資料
+    month: number;           // 月份
+    holidays: Holiday[];     // 該月假日列表
+  }[];
+  generatedAt: string;       // 產生時間 (ISO 8601)
+  license?: {                // 資料授權資訊
+    name: string;
+    url: string;
+    attribution: string;
+  };
 }
 ```
 

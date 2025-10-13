@@ -37,4 +37,4 @@ coverage/
 *.temp
 
 # gh-pages
-public/*.json
+public/**/*.json

@@ -18,3 +18,17 @@ export interface CalendarData {
     attribution: string;
   };
 }
+
+export interface YearlyCalendarData {
+  year: number;
+  months: {
+    month: number;
+    holidays: Holiday[];
+  }[];
+  generatedAt: string;
+  license?: {
+    name: string;
+    url: string;
+    attribution: string;
+  };
+}

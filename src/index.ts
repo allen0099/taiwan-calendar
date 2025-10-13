@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio';
 import { parse } from 'csv-parse/sync';
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import type { Holiday, CalendarData } from './types.js';
+import type { Holiday, CalendarData, YearlyCalendarData } from './types.js';
 
 /**
  * 政府資料開放平台的行事曆資料集 URL
@@ -266,15 +266,16 @@ function parseCSVToJSON(csvContent: string, source: CalendarSource): CalendarDat
  */
 async function saveJSON(data: CalendarData, outputDir: string): Promise<void> {
   const { year, month } = data;
-  const fileName = `${year}-${month.toString().padStart(2, '0')}.json`;
-  const filePath = path.join(outputDir, fileName);
+  const yearDir = path.join(outputDir, year.toString());
+  const fileName = `${month.toString().padStart(2, '0')}.json`;
+  const filePath = path.join(yearDir, fileName);
 
-  // 確保輸出目錄存在
-  await fs.mkdir(outputDir, { recursive: true });
+  // 確保年份目錄存在
+  await fs.mkdir(yearDir, { recursive: true });
 
   // 寫入檔案
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
-  console.log(`Saved: ${fileName}`);
+  console.log(`Saved: ${year}/${fileName}`);
 }
 
 /**
@@ -289,25 +290,102 @@ async function saveAllMonths(monthlyData: CalendarData[], outputDir: string): Pr
 }
 
 /**
+ * 儲存整年份的 JSON 檔案
+ */
+async function saveYearlyData(monthlyData: CalendarData[], outputDir: string): Promise<void> {
+  if (monthlyData.length === 0) return;
+  
+  const year = monthlyData[0].year;
+  const yearDir = path.join(outputDir, year.toString());
+  const fileName = `all.json`;
+  const filePath = path.join(yearDir, fileName);
+  
+  // 確保年份目錄存在
+  await fs.mkdir(yearDir, { recursive: true });
+  
+  // 建立整年份的資料結構
+  const yearlyData: YearlyCalendarData = {
+    year,
+    months: monthlyData.map(data => ({
+      month: data.month,
+      holidays: data.holidays,
+    })),
+    generatedAt: new Date().toISOString(),
+    license: {
+      name: '政府資料開放授權條款',
+      url: 'https://data.gov.tw/license',
+      attribution: '資料來源：行政院人事行政總處',
+    },
+  };
+  
+  // 寫入檔案
+  await fs.writeFile(filePath, JSON.stringify(yearlyData, null, 2), 'utf-8');
+  console.log(`Saved: ${year}/${fileName}`);
+}
+
+/**
  * 產生 index.json 列出所有可用的月份
  */
 async function generateIndex(outputDir: string): Promise<void> {
-  const files = await fs.readdir(outputDir);
-  const calendarFiles = files
-    .filter(file => file.match(/^\d{4}-\d{2}\.json$/))
-    .sort()
-    .reverse(); // 最新的在前面
+  const yearDirs = await fs.readdir(outputDir);
+  const availableCalendars: any[] = [];
+  
+  // 遍歷每個年份目錄
+  for (const yearDir of yearDirs) {
+    const yearPath = path.join(outputDir, yearDir);
+    const stats = await fs.stat(yearPath);
+    
+    // 只處理目錄且為數字年份
+    if (!stats.isDirectory() || !/^\d{4}$/.test(yearDir)) {
+      continue;
+    }
+    
+    const year = parseInt(yearDir, 10);
+    const files = await fs.readdir(yearPath);
+    
+    // 找到該年份的所有月份檔案
+    const monthFiles = files
+      .filter(file => file.match(/^\d{2}\.json$/))
+      .sort();
+    
+    // 加入月份資料
+    for (const file of monthFiles) {
+      const month = parseInt(file.replace('.json', ''), 10);
+      availableCalendars.push({
+        year,
+        month,
+        file: `${year}/${file}`,
+        url: `./${year}/${file}`,
+      });
+    }
+    
+    // 加入整年份資料
+    const yearFile = `${year}.json`;
+    const yearFilePath = path.join(yearPath, yearFile);
+    try {
+      await fs.access(yearFilePath);
+      availableCalendars.push({
+        year,
+        month: null,
+        file: `${year}/${yearFile}`,
+        url: `./${year}/${yearFile}`,
+        isYearly: true,
+      });
+    } catch {
+      // 年份檔案不存在，跳過
+    }
+  }
+  
+  // 按年份和月份排序（最新的在前面）
+  availableCalendars.sort((a, b) => {
+    if (a.year !== b.year) return b.year - a.year;
+    if (a.isYearly && !b.isYearly) return -1;
+    if (!a.isYearly && b.isYearly) return 1;
+    return (b.month || 0) - (a.month || 0);
+  });
 
   const index = {
-    availableCalendars: calendarFiles.map(file => {
-      const [year, month] = file.replace('.json', '').split('-');
-      return {
-        year: parseInt(year, 10),
-        month: parseInt(month, 10),
-        file: file,
-        url: `./${file}`
-      };
-    }),
+    availableCalendars,
     generatedAt: new Date().toISOString(),
     license: {
       name: '政府資料開放授權條款',
@@ -374,6 +452,9 @@ async function main() {
         
         // 儲存所有月份
         await saveAllMonths(monthlyData, outputDir);
+        
+        // 儲存整年份資料
+        await saveYearlyData(monthlyData, outputDir);
         
         processedYears.add(source.year);
         console.log(`✅ Completed: ${source.year}`);
