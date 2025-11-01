@@ -2206,18 +2206,18 @@
         },
         {
           "date": "20250928",
-          "name": "孔子誕辰紀念日",
+          "name": "",
           "isHoliday": true,
           "isWeekend": true,
-          "isSpecialHoliday": true,
-          "description": "孔子誕辰紀念日"
+          "isSpecialHoliday": false,
+          "description": ""
         },
         {
           "date": "20250929",
           "name": "",
-          "isHoliday": true,
+          "isHoliday": false,
           "isWeekend": false,
-          "isSpecialHoliday": true,
+          "isSpecialHoliday": false,
           "description": ""
         },
         {
@@ -2420,18 +2420,18 @@
         {
           "date": "20251024",
           "name": "",
-          "isHoliday": true,
+          "isHoliday": false,
           "isWeekend": false,
-          "isSpecialHoliday": true,
+          "isSpecialHoliday": false,
           "description": ""
         },
         {
           "date": "20251025",
-          "name": "臺灣光復暨金門古寧頭大捷紀念日",
+          "name": "",
           "isHoliday": true,
           "isWeekend": true,
-          "isSpecialHoliday": true,
-          "description": "臺灣光復暨金門古寧頭大捷紀念日"
+          "isSpecialHoliday": false,
+          "description": ""
         },
         {
           "date": "20251026",
@@ -2925,11 +2925,11 @@
         },
         {
           "date": "20251225",
-          "name": "行憲紀念日",
-          "isHoliday": true,
+          "name": "",
+          "isHoliday": false,
           "isWeekend": false,
-          "isSpecialHoliday": true,
-          "description": "行憲紀念日"
+          "isSpecialHoliday": false,
+          "description": ""
         },
         {
           "date": "20251226",
@@ -2982,7 +2982,7 @@
       ]
     }
   ],
-  "generatedAt": "2025-10-13T09:56:34.226Z",
+  "generatedAt": "2025-11-01T00:03:02.120Z",
   "license": {
     "name": "政府資料開放授權條款",
     "url": "https://data.gov.tw/license",

@@ -220,18 +220,18 @@
     },
     {
       "date": "20250928",
-      "name": "孔子誕辰紀念日",
+      "name": "",
       "isHoliday": true,
       "isWeekend": true,
-      "isSpecialHoliday": true,
-      "description": "孔子誕辰紀念日"
+      "isSpecialHoliday": false,
+      "description": ""
     },
     {
       "date": "20250929",
       "name": "",
-      "isHoliday": true,
+      "isHoliday": false,
       "isWeekend": false,
-      "isSpecialHoliday": true,
+      "isSpecialHoliday": false,
       "description": ""
     },
     {
@@ -243,7 +243,7 @@
       "description": ""
     }
   ],
-  "generatedAt": "2025-10-13T09:56:34.221Z",
+  "generatedAt": "2025-11-01T00:03:02.114Z",
   "license": {
     "name": "政府資料開放授權條款",
     "url": "https://data.gov.tw/license",
