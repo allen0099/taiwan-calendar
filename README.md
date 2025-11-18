@@ -140,6 +140,29 @@ pnpm run start
 
 # 手動抓取資料
 pnpm run fetch
+
+# 啟用 DEBUG 模式執行(顯示詳細的除錯訊息)
+DEBUG=true pnpm run start
+```
+
+### 除錯模式
+
+程式支援 DEBUG 模式,可以顯示詳細的執行過程:
+
+```bash
+# 啟用 DEBUG 模式
+DEBUG=true pnpm run start
+```
+
+DEBUG 模式會顯示:
+- CSV 檔案編碼檢測結果(UTF-8/Big5)
+- CSV 內容預覽
+- 解析的記錄數和欄位名稱
+- 資料處理狀態
+- 每月資料統計
+
+正常執行時不會顯示 DEBUG 訊息,保持輸出簡潔。
+
 ```
 
 ### 專案結構

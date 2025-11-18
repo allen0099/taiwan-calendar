@@ -7,6 +7,20 @@ import iconv from 'iconv-lite';
 import type { Holiday, CalendarData, YearlyCalendarData } from './types.js';
 
 /**
+ * Debug 模式控制 (透過環境變數 DEBUG=true 啟用)
+ */
+const DEBUG_MODE = process.env.DEBUG === 'true';
+
+/**
+ * Debug log 函式 - 只在 DEBUG 模式下輸出
+ */
+function debug(...args: any[]): void {
+  if (DEBUG_MODE) {
+    console.log('[DEBUG]', ...args);
+  }
+}
+
+/**
  * 政府資料開放平台的行事曆資料集 URL
  */
 const DATA_GOV_DATASET_URL = 'https://data.gov.tw/dataset/14718';
@@ -161,7 +175,7 @@ async function fetchCalendarCSV(source: CalendarSource): Promise<string> {
     if (buffer[0] === 0xEF && buffer[1] === 0xBB && buffer[2] === 0xBF) {
       // UTF-8 with BOM
       content = buffer.toString('utf-8');
-      console.log(`[DEBUG] Detected UTF-8 with BOM`);
+      debug('Detected UTF-8 with BOM');
     } else {
       // 先嘗試 UTF-8
       content = buffer.toString('utf-8');
@@ -171,13 +185,13 @@ async function fetchCalendarCSV(source: CalendarSource): Promise<string> {
       const hasGarbage = sample.includes('�') || !/[\u4e00-\u9fa5]/.test(sample);
       
       if (hasGarbage) {
-        console.log(`[DEBUG] UTF-8 decoding failed, trying Big5...`);
+        debug('UTF-8 decoding failed, trying Big5...');
         // 嘗試 Big5 編碼
         content = iconv.decode(buffer, 'big5');
-        console.log(`[DEBUG] Successfully decoded as Big5`);
-        console.log(`[DEBUG] Sample: ${content.substring(0, 100)}`);
+        debug('Successfully decoded as Big5');
+        debug('Sample:', content.substring(0, 100));
       } else {
-        console.log(`[DEBUG] Detected UTF-8 without BOM`);
+        debug('Detected UTF-8 without BOM');
       }
     }
     
@@ -216,9 +230,9 @@ function isWeekendDay(dateStr: string, weekdayStr?: string): boolean {
  * CSV 格式: 西元日期,星期,是否放假,備註
  */
 function parseCSVToJSON(csvContent: string, source: CalendarSource): CalendarData[] {
-  console.log(`[DEBUG] Parsing CSV for year ${source.year}`);
-  console.log(`[DEBUG] CSV content length: ${csvContent.length}`);
-  console.log(`[DEBUG] CSV first 500 chars: ${csvContent.substring(0, 500)}`);
+  debug(`Parsing CSV for year ${source.year}`);
+  debug(`CSV content length: ${csvContent.length}`);
+  debug(`CSV first 500 chars: ${csvContent.substring(0, 500)}`);
   
   const records = parse(csvContent, {
     columns: true,
@@ -227,10 +241,10 @@ function parseCSVToJSON(csvContent: string, source: CalendarSource): CalendarDat
     bom: true, // 處理 BOM (Byte Order Mark)
   });
   
-  console.log(`[DEBUG] Parsed ${records.length} records`);
+  debug(`Parsed ${records.length} records`);
   if (records.length > 0) {
-    console.log(`[DEBUG] First record:`, records[0]);
-    console.log(`[DEBUG] Column names:`, Object.keys(records[0] as object));
+    debug('First record:', records[0]);
+    debug('Column names:', Object.keys(records[0] as object));
   }
 
   // 按月份分組
@@ -242,13 +256,13 @@ function parseCSVToJSON(csvContent: string, source: CalendarSource): CalendarDat
     const dateStr = record['西元日期'] || record['日期'] || record['date'] || record['Date'];
     
     if (index < 3) {
-      console.log(`[DEBUG] Processing record ${index}:`, record);
-      console.log(`[DEBUG] Extracted dateStr: ${dateStr}`);
+      debug(`Processing record ${index}:`, record);
+      debug(`Extracted dateStr: ${dateStr}`);
     }
     if (!dateStr) {
       skippedCount++;
       if (index < 5) {
-        console.log(`[DEBUG] Skipped record ${index} - no dateStr`);
+        debug(`Skipped record ${index} - no dateStr`);
       }
       return;
     }
@@ -264,13 +278,13 @@ function parseCSVToJSON(csvContent: string, source: CalendarSource): CalendarDat
     } else {
       skippedCount++;
       if (index < 5) {
-        console.log(`[DEBUG] Skipped record ${index} - invalid date format: ${dateStr}`);
+        debug(`Skipped record ${index} - invalid date format: ${dateStr}`);
       }
       return;
     }
     
     if (index < 3) {
-      console.log(`[DEBUG] Parsed month: ${month} from dateStr: ${dateStr}`);
+      debug(`Parsed month: ${month} from dateStr: ${dateStr}`);
     }
 
     // 取得各欄位資料
@@ -303,14 +317,14 @@ function parseCSVToJSON(csvContent: string, source: CalendarSource): CalendarDat
     processedCount++;
     
     if (index < 3) {
-      console.log(`[DEBUG] Added holiday for month ${month}:`, holiday);
+      debug(`Added holiday for month ${month}:`, holiday);
     }
   });
   
-  console.log(`[DEBUG] Processing complete: ${processedCount} processed, ${skippedCount} skipped`);
-  console.log(`[DEBUG] Months with data:`, Array.from(monthlyData.keys()).sort((a, b) => a - b));
+  debug(`Processing complete: ${processedCount} processed, ${skippedCount} skipped`);
+  debug('Months with data:', Array.from(monthlyData.keys()).sort((a, b) => a - b));
   monthlyData.forEach((holidays, month) => {
-    console.log(`[DEBUG]   Month ${month}: ${holidays.length} holidays`);
+    debug(`  Month ${month}: ${holidays.length} holidays`);
   });
 
   // 轉換為 CalendarData 陣列
@@ -354,7 +368,7 @@ async function saveJSON(data: CalendarData, outputDir: string): Promise<void> {
  * 批次儲存多個月份的資料
  */
 async function saveAllMonths(monthlyData: CalendarData[], outputDir: string): Promise<void> {
-  console.log(`[DEBUG] saveAllMonths called with ${monthlyData.length} months`);
+  debug(`saveAllMonths called with ${monthlyData.length} months`);
   let savedCount = 0;
   let emptyCount = 0;
   
@@ -364,11 +378,11 @@ async function saveAllMonths(monthlyData: CalendarData[], outputDir: string): Pr
       savedCount++;
     } else {
       emptyCount++;
-      console.log(`[DEBUG] Skipped saving empty month: ${data.year}/${data.month}`);
+      debug(`Skipped saving empty month: ${data.year}/${data.month}`);
     }
   }
   
-  console.log(`[DEBUG] Saved ${savedCount} months, skipped ${emptyCount} empty months`);
+  debug(`Saved ${savedCount} months, skipped ${emptyCount} empty months`);
 }
 
 /**
