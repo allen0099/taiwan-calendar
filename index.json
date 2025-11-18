@@ -73,78 +73,6 @@
       "url": "./2026/01.json"
     },
     {
-      "year": 2025,
-      "month": 12,
-      "file": "2025/12.json",
-      "url": "./2025/12.json"
-    },
-    {
-      "year": 2025,
-      "month": 11,
-      "file": "2025/11.json",
-      "url": "./2025/11.json"
-    },
-    {
-      "year": 2025,
-      "month": 10,
-      "file": "2025/10.json",
-      "url": "./2025/10.json"
-    },
-    {
-      "year": 2025,
-      "month": 9,
-      "file": "2025/09.json",
-      "url": "./2025/09.json"
-    },
-    {
-      "year": 2025,
-      "month": 8,
-      "file": "2025/08.json",
-      "url": "./2025/08.json"
-    },
-    {
-      "year": 2025,
-      "month": 7,
-      "file": "2025/07.json",
-      "url": "./2025/07.json"
-    },
-    {
-      "year": 2025,
-      "month": 6,
-      "file": "2025/06.json",
-      "url": "./2025/06.json"
-    },
-    {
-      "year": 2025,
-      "month": 5,
-      "file": "2025/05.json",
-      "url": "./2025/05.json"
-    },
-    {
-      "year": 2025,
-      "month": 4,
-      "file": "2025/04.json",
-      "url": "./2025/04.json"
-    },
-    {
-      "year": 2025,
-      "month": 3,
-      "file": "2025/03.json",
-      "url": "./2025/03.json"
-    },
-    {
-      "year": 2025,
-      "month": 2,
-      "file": "2025/02.json",
-      "url": "./2025/02.json"
-    },
-    {
-      "year": 2025,
-      "month": 1,
-      "file": "2025/01.json",
-      "url": "./2025/01.json"
-    },
-    {
       "year": 2024,
       "month": 12,
       "file": "2024/12.json",
@@ -721,7 +649,7 @@
       "url": "./2017/01.json"
     }
   ],
-  "generatedAt": "2025-11-01T00:03:04.869Z",
+  "generatedAt": "2025-11-18T08:02:16.098Z",
   "license": {
     "name": "政府資料開放授權條款",
     "url": "https://data.gov.tw/license",
