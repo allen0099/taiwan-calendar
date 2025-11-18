@@ -42,10 +42,10 @@ function isGoogleVersion(title: string): boolean {
 }
 
 /**
- * 判斷是否為修正版
+ * 判斷是否為修正版、修訂版或更新版（即任何已修改的版本）
  */
 function isRevisedVersion(title: string): boolean {
-  return title.includes('修正') || title.includes('修訂');
+  return title.includes('修正') || title.includes('修訂') || title.includes('更新');
 }
 
 /**
