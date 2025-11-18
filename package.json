@@ -30,9 +30,11 @@
   "dependencies": {
     "axios": "^1.13.2",
     "cheerio": "^1.1.2",
-    "csv-parse": "^6.1.0"
+    "csv-parse": "^6.1.0",
+    "iconv-lite": "^0.7.0"
   },
   "devDependencies": {
+    "@types/iconv-lite": "^0.0.1",
     "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.47.0",
     "@typescript-eslint/parser": "^8.47.0",
