@@ -1,6 +1,78 @@
 {
   "availableCalendars": [
     {
+      "year": 2027,
+      "month": 12,
+      "file": "2027/12.json",
+      "url": "./2027/12.json"
+    },
+    {
+      "year": 2027,
+      "month": 11,
+      "file": "2027/11.json",
+      "url": "./2027/11.json"
+    },
+    {
+      "year": 2027,
+      "month": 10,
+      "file": "2027/10.json",
+      "url": "./2027/10.json"
+    },
+    {
+      "year": 2027,
+      "month": 9,
+      "file": "2027/09.json",
+      "url": "./2027/09.json"
+    },
+    {
+      "year": 2027,
+      "month": 8,
+      "file": "2027/08.json",
+      "url": "./2027/08.json"
+    },
+    {
+      "year": 2027,
+      "month": 7,
+      "file": "2027/07.json",
+      "url": "./2027/07.json"
+    },
+    {
+      "year": 2027,
+      "month": 6,
+      "file": "2027/06.json",
+      "url": "./2027/06.json"
+    },
+    {
+      "year": 2027,
+      "month": 5,
+      "file": "2027/05.json",
+      "url": "./2027/05.json"
+    },
+    {
+      "year": 2027,
+      "month": 4,
+      "file": "2027/04.json",
+      "url": "./2027/04.json"
+    },
+    {
+      "year": 2027,
+      "month": 3,
+      "file": "2027/03.json",
+      "url": "./2027/03.json"
+    },
+    {
+      "year": 2027,
+      "month": 2,
+      "file": "2027/02.json",
+      "url": "./2027/02.json"
+    },
+    {
+      "year": 2027,
+      "month": 1,
+      "file": "2027/01.json",
+      "url": "./2027/01.json"
+    },
+    {
       "year": 2026,
       "month": 12,
       "file": "2026/12.json",
@@ -721,7 +793,7 @@
       "url": "./2017/01.json"
     }
   ],
-  "generatedAt": "2026-06-01T00:20:45.739Z",
+  "generatedAt": "2026-07-01T00:23:40.694Z",
   "license": {
     "name": "政府資料開放授權條款",
     "url": "https://data.gov.tw/license",
